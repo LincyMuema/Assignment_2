@@ -8,5 +8,7 @@ function ClassAutoLoad($ClassName){
             require $FileName;
            }
     }
-   
 }
+//creation of instances 
+$objLayout = new layout();
+$objNavigation = new navigation();
