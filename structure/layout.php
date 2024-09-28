@@ -18,7 +18,7 @@
         public function footer(){
             ?>
              <footer class="pt-3 mt-4 text-body-secondary border-top">
-                &copy; 2024
+                <p>Assignment 2 Lincy Muema </p> &copy; 2024
               </footer>
             </div>
           </main>
