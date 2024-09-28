@@ -27,7 +27,7 @@ class dbConnection{
                 if($this->connection->connect_error){
                     return "Connection Failed" . $this->connection->connect_error;
                 }else{
-                    print "Connected Successfully";
+                    //print "Connected Successfully to MySQLi";
                 }
                 break;
             case 'PDO':
@@ -38,7 +38,7 @@ class dbConnection{
                     $this->connection = new PDO("mysql:host=$db_host;dbname=$db_name", $db_user, $db_pass);
                     
                     $this->connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                    echo "Connected successfully to PDO";
+                    //echo "Connected successfully to PDO";
                   } catch(PDOException $e) {
                     echo "Connection failed: " . $e->getMessage();
                   }
@@ -48,7 +48,7 @@ class dbConnection{
 
     public function insert($table, $data){
         ksort($data);
-        $fielDetails = NULL;
+        $fieldDetails = NULL;
         $fieldNames = implode('`, `', array_keys($data));
         $fieldValues = implode("', '", array_values($data));
         $sth = "INSERT INTO $table (`$fieldNames`) VALUES ('$fieldValues')";
