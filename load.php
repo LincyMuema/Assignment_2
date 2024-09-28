@@ -9,6 +9,7 @@ function ClassAutoLoad($ClassName){
            }
     }
 }
+spl_autoload_register('ClassAutoLoad');
 //creation of instances 
 $objLayout = new layout();
 $objNavigation = new navigation();
