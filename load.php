@@ -1,6 +1,6 @@
 <?php
 function ClassAutoLoad($ClassName){
-    $directories=["forms","structure"];
+    $directories=["form","structure"];
     
     foreach($directories as $dir){
         $FileName = dirname(__FILE__) . DIRECTORY_SEPARATOR . $dir . DIRECTORY_SEPARATOR . $ClassName . '.php';

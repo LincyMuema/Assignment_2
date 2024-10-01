@@ -1,5 +1,5 @@
 <?php
-    class forms{
+class forms{
         public function signup(){
             ?>
             <form>
