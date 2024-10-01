@@ -14,3 +14,4 @@ spl_autoload_register('ClassAutoLoad');
 $objLayout = new layout();
 $objNavigation = new navigation();
 $objForms = new forms();
+$onjContent = new content();
