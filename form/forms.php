@@ -3,7 +3,7 @@ class forms{
         public function signup(){
             ?>
             <form>
- 
+            <p>WELCOME................PLEASE SIGN UP </p>
   <div class="row mb-3">
     <label for="fullname" class="col-sm-2 col-form-label">Fullname: </label>
     <div class="col-sm-10">
