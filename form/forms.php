@@ -22,7 +22,7 @@ class forms{
       <input type="email" class="form-control" id="email" placeholder="Email">
     </div>
   </div>
-  <button type="submit" class="btn btn-primary">Sign Up</button>
+  <button type="submit" class="btn btn-success">Sign Up</button>
 </form>
 <?php
         }
