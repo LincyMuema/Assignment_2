@@ -5,12 +5,12 @@
         <div class="row align-items-md-stretch">
         <div class="col-md-8">
                 <h1>Welcome to Assignment TWO!!!!</h1>
-                <p>
-               This is the landing page for assignment 2. Please click on sign up at the navigation bar to proceed.
-                </p>
+                <h5>
+               This is the landing page for assignment 2. <br>Please click on sign up at the navigation bar to proceed.
+                </h5>
                 <p>
                     Have a lovely day
-    </p>
+                </p>
             </div>
         <?php
     }

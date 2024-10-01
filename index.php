@@ -2,5 +2,5 @@
 require_once "load.php";
 $objLayout->header();
 $objNavigation->nav();
-$objcontent -> mainContent();
+$objContent -> mainContent();
 $objLayout->footer();
