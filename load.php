@@ -13,3 +13,4 @@ spl_autoload_register('ClassAutoLoad');
 //creation of instances 
 $objLayout = new layout();
 $objNavigation = new navigation();
+$objForms = new forms();
