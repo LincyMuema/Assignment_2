@@ -5,9 +5,15 @@ class forms{
             <form>
             <p>WELCOME................PLEASE SIGN UP </p>
   <div class="row mb-3">
-    <label for="fullname" class="col-sm-2 col-form-label">Fullname: </label>
+    <label for="firstname" class="col-sm-2 col-form-label">First Name: </label>
     <div class="col-sm-10">
-      <input type="fullname" class="form-control" id="fullname" placeholder="Fullname">
+      <input type="firstname" class="form-control" id="firstname" placeholder="First Name">
+    </div>
+  </div>
+  <div class="row mb-3">
+    <label for="lastname" class="col-sm-2 col-form-label">Last Name: </label>
+    <div class="col-sm-10">
+      <input type="lastname" class="form-control" id="lastname" placeholder="Last Name">
     </div>
   </div>
   <div class="row mb-3">
@@ -22,7 +28,7 @@ class forms{
       <input type="email" class="form-control" id="email" placeholder="Email">
     </div>
   </div>
-  <button type="submit" class="btn btn-success">Sign Up</button>
+  <button type="submit" class="btn btn-success">Next</button>
 </form>
 <?php
         }
