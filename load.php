@@ -1,4 +1,6 @@
 <?php
+require "connection/constants.php";
+require "connection/dbConnect.php";
 function ClassAutoLoad($ClassName){
     $directories=["form","structure"];
     
@@ -10,6 +12,7 @@ function ClassAutoLoad($ClassName){
     }
 }
 spl_autoload_register('ClassAutoLoad');
+$conn = new dbConnect(DBTYPE, HOSTNAME, DBPORT, HOSTUSER, HOSTPASS, DBNAME);
 //creation of instances 
 $objLayout = new layout();
 $objNavigation = new navigation();

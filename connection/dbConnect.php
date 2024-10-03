@@ -1,5 +1,5 @@
 <?php
-class dbConnection{
+class dbConnect{
     private $connection;
     private $db_type;
     private $db_host;
@@ -27,7 +27,7 @@ class dbConnection{
                 if($this->connection->connect_error){
                     return "Connection Failed" . $this->connection->connect_error;
                 }else{
-                    //print "Connected Successfully to MySQLi";
+                //print "Connected Successfully to MySQLi";
                 }
                 break;
             case 'PDO':
