@@ -2,7 +2,7 @@
 class forms{
         public function signup(){
             ?>
-            <form>
+            <form action="" method="post" enctype="multipart/form-data">
             <p>WELCOME................PLEASE SIGN UP </p>
   <div class="row mb-3">
     <label for="firstname" class="col-sm-2 col-form-label">First Name: </label>
