@@ -70,4 +70,15 @@ class dbConnect{
                   }
         }
     }
+    public function select($table, $column, $value) {
+        $sth = "SELECT * FROM `$table` WHERE `$column` = :value";
+        $stmt = $this->connection->prepare($sth);
+        $stmt->bindParam(':value', $value);
+        
+        if ($stmt->execute()) {
+            return $stmt->fetchAll(PDO::FETCH_ASSOC); // Return all matching records
+        } else {
+            return false; // Handle query failure
+        }
+    }
 }
