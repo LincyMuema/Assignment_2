@@ -2,7 +2,7 @@
 class forms{
         public function signupform(){
             ?>
-            <form action="" method="post" enctype="multipart/form-data">
+            <form action="" method="post" enctype="multipart/form-data"<?php echo $_SERVER["PHP_SELF"];?>>
             <p>WELCOME................PLEASE SIGN UP </p>
   <div class="row mb-3">
     <label for="firstname" class="col-sm-2 col-form-label">First Name: </label>
