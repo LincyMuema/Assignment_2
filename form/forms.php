@@ -39,7 +39,7 @@ class forms {
           <div class="row mb-3">
               <label for="phoneNo" class="col-sm-2 col-form-label">Phone Number: </label>
               <div class="col-sm-10">
-                  <input type="text" class="form-control" id="phoneNo" name="phoneNo" placeholder="Phone Number" value="<?php echo isset($_POST['phoneNo']) ? htmlspecialchars($_POST['phoneNo']) : ''; ?>">
+                  <input type="text" class="form-control" id="phoneNo" name="phoneNo" placeholder="Phone Number" value="<?php echo isset($_POST['phoneNo']) ? htmlspecialchars($_POST['phoneNo']) : ''; ?>"max 13>
                   <?php if (isset($errors['phoneNo'])): ?>
                         <div class="text-danger"><?php echo $errors['phoneNo']; ?></div>
                     <?php endif; ?>
