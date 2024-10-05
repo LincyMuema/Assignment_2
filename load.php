@@ -2,7 +2,7 @@
 require "connection/constants.php";
 require "connection/dbConnect.php";
 function ClassAutoLoad($ClassName){
-    $directories=["form","structure"];
+    $directories=["form","structure","sql"];
     
     foreach($directories as $dir){
         $FileName = dirname(__FILE__) . DIRECTORY_SEPARATOR . $dir . DIRECTORY_SEPARATOR . $ClassName . '.php';
@@ -18,5 +18,5 @@ $objLayout = new layout();
 $objNavigation = new navigation();
 $objForms = new forms();
 $objContent = new content();
-//$objInsert = new insert();
-//$objInsert->signup($conn);
+$objInsert = new insert();
+$objInsert->signup($conn);
