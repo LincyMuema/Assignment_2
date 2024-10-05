@@ -5,10 +5,14 @@
                 $firstname = $_POST["firstname"];
                 $lastname = $_POST["lastname"];
                 $email = $_POST["email"];
-                $username = $_POST["username"];
-    
-    $cols = ['firstname','lastname','email', 'username'];
-    $vals = [$firstname, $lastname, $email, $username];
+                $phoneNo = $_POST["phoneNo"];
+        $errors = array();
+    if(!filter_var($email_address, FILTER_VALIDATE_EMAIL)){
+        $errors['email'] = 'Invalid Email format';
+    }
+
+    $cols = ['firstname','lastname','email', 'phoneNo'];
+    $vals = [$firstname, $lastname, $email, $phoneNo];
     
     $data = array_combine($cols, $vals);
     

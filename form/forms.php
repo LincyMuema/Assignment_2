@@ -2,7 +2,7 @@
 class forms{
         public function signupform(){
             ?>
-            <form action="" method="post" enctype="multipart/form-data"<?php echo $_SERVER["PHP_SELF"];?>>
+            <form action="" method="post" enctype="multipart/form-data">
             <p>WELCOME................PLEASE SIGN UP </p>
   <div class="row mb-3">
     <label for="firstname" class="col-sm-2 col-form-label">First Name: </label>
@@ -20,7 +20,8 @@ class forms{
     <label for="email" class="col-sm-2 col-form-label">Email: </label>
     <div class="col-sm-10">
       <input type="email" name ="email" class="form-control" id="email" placeholder="Email">
-    </div>
+      <?php print (isset($err['email'])) ? "<span class='invalid'>" . $err['email'] . "</span>" : '' ; ?>
+        </div>
   </div>
   <div class="row mb-3">
       <label for="phoneNo" class="col-sm-2 col-form-label">Phone Number: </label>
