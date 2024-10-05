@@ -2,6 +2,6 @@
 require_once "load.php";
 $objLayout->header();
 $objNavigation->nav();
-$objForms->signup();
+$objForms->signupform();
 $objLayout->footer();
 

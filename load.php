@@ -18,5 +18,5 @@ $objLayout = new layout();
 $objNavigation = new navigation();
 $objForms = new forms();
 $objContent = new content();
-$objInsert = new insert();
-$objInsert->signup($conn);
+//$objInsert = new insert();
+//$objInsert->signup($conn);
