@@ -18,12 +18,12 @@
         ?>
         <div class="row align-items-md-stretch">
         <div class="col-md-8">
-                <h1>Welcome, Your are signed in!!!</h1>
+                <h1>Welcome, You are signed in!!!</h1>
                 <h5>
               Do you want to see other users?
                 </h5>
                 <form action="displayUsers.php" method="get">
-    <button type="submit">Go to Display User</button>
+    <button type="submit" class="btn btn-success">Go to Display User</button>
 </form>
                 <p>
                     Have a lovely day
@@ -37,7 +37,7 @@
             <div class="col-md-8">
                
                 <h2>User Details</h2>
-                <table class="table">
+                <table class="table table-striped" >
                     <thead>
                         <tr>
                             <th scope="col">#</th>
