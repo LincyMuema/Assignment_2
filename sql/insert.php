@@ -57,7 +57,7 @@ class insert {
                             $mailSender = new mail();
                             $mailSender->sendVerificationEmail($email, $firstname . ' ' . $lastname, $verificationCode);
 
-                            header('Location: signup.php');
+                            header('Location: after.php');
                             exit();
                         } else {
                             die("Failed to update verification code.");
