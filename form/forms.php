@@ -2,7 +2,7 @@
 class forms {
   public function signupform($errors = []) {
       ?>
-      <form action="" method="post" enctype="multipart/form-data">
+      <form action="../after.php" method="post" enctype="multipart/form-data">
           <p>WELCOME................PLEASE SIGN UP </p>
         
 

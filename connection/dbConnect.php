@@ -70,15 +70,57 @@ class dbConnect{
                   }
         }
     }
-    public function select($table, $column, $value) {
-        $sth = "SELECT * FROM `$table` WHERE `$column` = :value";
-        $stmt = $this->connection->prepare($sth);
-        $stmt->bindParam(':value', $value);
-        
-        if ($stmt->execute()) {
-            return $stmt->fetchAll(PDO::FETCH_ASSOC); // Return all matching records
+    public function select($table, $column = null, $value = null) {
+        if ($column === null || $value === null) {
+            $sth = "SELECT * FROM `$table`";
+            $stmt = $this->connection->prepare($sth);
+            $stmt->execute();
+            return $stmt->fetchAll(PDO::FETCH_ASSOC); // Return all records
         } else {
-            return false; // Handle query failure
+            $sth = "SELECT * FROM `$table` WHERE `$column` = :value";
+            $stmt = $this->connection->prepare($sth);
+            $stmt->bindParam(':value', $value);
+    
+            if ($stmt->execute()) {
+                return $stmt->fetchAll(PDO::FETCH_ASSOC); // Return all matching records
+            } else {
+                return false; // Handle query failure
+            }
         }
     }
-}
+    public function update($table, $data, $where) {
+        $updateFields = [];
+        foreach ($data as $column => $value) {
+            $updateFields[] = "$column = '$value'";
+        }
+        $updateFieldsStr = implode(", ", $updateFields);
+    
+        $whereFields = [];
+        foreach ($where as $column => $value) {
+            $whereFields[] = "$column = '$value'";
+        }
+        $whereFieldsStr = implode(" AND ", $whereFields);
+    
+        $sql = "UPDATE $table SET $updateFieldsStr WHERE $whereFieldsStr";
+    
+        // Use $this->connection instead of $this->conn
+        switch($this->db_type) {
+            case 'MySQLi':
+                if ($this->connection->query($sql) === TRUE) {
+                    return TRUE;
+                } else {
+                    return "Error: " . $sql . "<br>" . $this->connection->error;
+                }
+                break;
+            case 'PDO':
+                try {
+                    $stmt = $this->connection->prepare($sql);
+                    $stmt->execute();
+                    return TRUE;
+                } catch (PDOException $e) {
+                    return "Error: " . $sql . "<br>" . $e->getMessage();
+                }
+                break;
+        }
+    }
+} 
