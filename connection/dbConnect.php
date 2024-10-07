@@ -75,16 +75,16 @@ class dbConnect{
             $sth = "SELECT * FROM `$table`";
             $stmt = $this->connection->prepare($sth);
             $stmt->execute();
-            return $stmt->fetchAll(PDO::FETCH_ASSOC); // Return all records
+            return $stmt->fetchAll(PDO::FETCH_ASSOC); 
         } else {
             $sth = "SELECT * FROM `$table` WHERE `$column` = :value";
             $stmt = $this->connection->prepare($sth);
             $stmt->bindParam(':value', $value);
     
             if ($stmt->execute()) {
-                return $stmt->fetchAll(PDO::FETCH_ASSOC); // Return all matching records
+                return $stmt->fetchAll(PDO::FETCH_ASSOC); 
             } else {
-                return false; // Handle query failure
+                return false; 
             }
         }
     }
@@ -103,7 +103,6 @@ class dbConnect{
     
         $sql = "UPDATE $table SET $updateFieldsStr WHERE $whereFieldsStr";
     
-        // Use $this->connection instead of $this->conn
         switch($this->db_type) {
             case 'MySQLi':
                 if ($this->connection->query($sql) === TRUE) {
