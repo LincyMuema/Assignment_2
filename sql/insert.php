@@ -1,6 +1,9 @@
 <?php
 class insert {
     public function signup($conn) {
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
         $errors = [];
 
         if (isset($_POST["signup"])) {
@@ -53,11 +56,12 @@ class insert {
                         $update = $conn->update('users', $updateData, $whereCondition);
 
                         if ($update === TRUE) {
-                          
+                            $_SESSION['email'] = $email;
+
                             $mailSender = new mail();
                             $mailSender->sendVerificationEmail($email, $firstname . ' ' . $lastname, $verificationCode);
 
-                            header('Location: after.php');
+                            header('Location: verify.php');
                             exit();
                         } else {
                             die("Failed to update verification code.");
@@ -71,4 +75,24 @@ class insert {
 
         return $errors;
     }
+
+    public function verifyCode($conn, $email, $verificationCode) {
+        $errors = [];
+       
+        $user = $conn->select('users', 'email', $email);
+        
+        if (empty($user)) {
+            $errors['email'] = "No account found with that email address.";
+        } 
+       
+        elseif ($user[0]['verificationcode'] != $verificationCode) {
+            $errors['verificationcode'] = "The verification code is incorrect.";
+        } else { 
+            header('Location: after.php');  
+            exit();
+        }
+        
+        return $errors;  
+    }
+    
 }

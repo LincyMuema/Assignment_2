@@ -49,4 +49,27 @@ class forms {
       </form>
       <?php
   }
+  public function verifyform($errors = []) {
+    ?>
+    <p>Please enter the verification code sent to your email.</p>
+    <form action="verify.php" method="post">
+        <div>
+            <label for="verificationcode">Verification Code:</label>
+            <input type="text" name="verificationcode" placeholder="Enter verification code" required>
+            <?php if (isset($errors['verificationcode'])): ?>
+                <div class="text-danger"><?php echo $errors['verificationcode']; ?></div>
+            <?php endif; ?>
+        </div>
+        
+        <button type="submit" name="verify">Verify</button>
+    </form>
+    <?php
+    if (isset($errors['email'])) {
+        echo '<div class="text-danger">'.$errors['email'].'</div>';
+    }
+    if (isset($errors['update'])) {
+        echo '<div class="text-danger">'.$errors['update'].'</div>';
+    }
+}
+
 }
