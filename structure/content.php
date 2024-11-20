@@ -35,9 +35,8 @@
         ?>
         <div class="row align-items-md-stretch">
             <div class="col-md-8">
-               
                 <h2>User Details</h2>
-                <table class="table table-striped" >
+                <table class="table table-striped">
                     <thead>
                         <tr>
                             <th scope="col">#</th>
@@ -46,31 +45,33 @@
                             <th scope="col">Email</th>
                             <th scope="col">Phone No</th>
                             <th scope="col">Verification Code</th>
+                            <th scope="col">Edit</th>
                         </tr>
                     </thead>
                     <tbody>
                     <?php
-                        
-                        $users = $conn->select('users');
-                        if (!empty($users)) {
-                            foreach ($users as $row) {
-                                echo '<tr>';
-                                echo '<th scope="row">' . $row['userID'] . '</th>';
-                                echo '<td>' . $row['firstname'] . '</td>';
-                                echo '<td>' . $row['lastname'] . '</td>';
-                                echo '<td>' . $row['email'] . '</td>';
-                                echo '<td>' . $row['phoneNo'] . '</td>';
-                                echo '<td>' . $row['verificationcode'] . '</td>';
-                                echo '</tr>';
-                            }
-                        } else {
-                            echo '<tr><td colspan="6">No users found.</td></tr>'; 
+                    $users = $conn->select('users');
+                    if (!empty($users)) {
+                        foreach ($users as $row) {
+                            echo '<tr>';
+                            echo '<th scope="row">' . $row['userID'] . '</th>';
+                            echo '<td>' . $row['firstname'] . '</td>';
+                            echo '<td>' . $row['lastname'] . '</td>';
+                            echo '<td>' . $row['email'] . '</td>';
+                            echo '<td>' . $row['phoneNo'] . '</td>';
+                            echo '<td>' . $row['verificationcode'] . '</td>';
+                            echo '<td><a href="edit.php?userID=' . $row['userID'] . '" class="btn btn-outline-success">Edit</a></td>';
+                            echo '</tr>';
                         }
-                        ?>
+                    } else {
+                        echo '<tr><td colspan="7">No users found.</td></tr>';
+                    }
+                    ?>
                     </tbody>
                 </table>
             </div>
         </div>
         <?php
+    
     }
 }

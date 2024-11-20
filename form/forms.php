@@ -71,5 +71,49 @@ class forms {
         echo '<div class="text-danger">'.$errors['update'].'</div>';
     }
 }
+public function editform($errors = []) {
+    ?>
+    <form action="" method="post" enctype="multipart/form-data">
+        <p>EDIT USER </p>
+      
+        <div class="container mt-5">
+    <h2 class="mb-4">Edit User Details</h2>
+    <form method="post" action="edit_user.php">
+        <input type="hidden" name="userID" value="<?= $user['userID'] ?>">
+        <div class="mb-3">
+            <label for="firstname" class="form-label">First Name</label>
+            <input type="text" class="form-control" id="firstname" name="firstname" value="<?= $user['firstname'] ?>" required>
+        </div>
+        <div class="mb-3">
+            <label for="lastname" class="form-label">Last Name</label>
+            <input type="text" class="form-control" id="lastname" name="lastname" value="<?= $user['lastname'] ?>" required>
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" name="email" value="<?= $user['email'] ?>" required>
+        </div>
+        <div class="mb-3">
+            <label for="phoneNo" class="form-label">Phone Number</label>
+            <input type="text" class="form-control" id="phoneNo" name="phoneNo" value="<?= $user['phoneNo'] ?>" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Update</button>
+        <a href="displayUsers.php" class="btn btn-secondary">Cancel</a>
+    </form>
 
+    <?php
+}
+
+public function genderform($errors = []) {
+    ?>
+    <form action="" method="post" enctype="multipart/form-data">
+        <p>Pick Gender</p>
+      
+        <div class="mb-3">
+            <label for="gender" class="form-label">Gender</label>
+            <input type="text" class="form-control" id="gender" name="gender"  required>
+        </div>
+        <button type="submit" class="btn btn-primary">Complete</button>
+    </form>
+    <?php
+}
 }

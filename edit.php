@@ -1,7 +1,8 @@
 
 <?php
 require_once "load.php";
+$errors = [];
 $objLayout->header();
 $objNavigation->nav_signedin();
-$objContent->displayUsers($conn);
+$objForms -> editform($errors);
 $objLayout->footer();
